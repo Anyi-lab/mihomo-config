@@ -1,15 +1,22 @@
 # 禁漫 JM 域名规则集 (classical format, mihomo rule-provider)
 # 更新方式：编辑本文件并 push 到 GitHub，所有设备每 86400 秒自动拉取
+# 自检脚本: /mnt/f/WSL/clacky-files/scripts/jm-api-check.sh （/setting 返回 code:200 即 API 域名可用）
 # 最后更新: 2026-09-12
+# --- 活跃 App API 域名 (v1.8.2) ---
 DOMAIN-SUFFIX,cdnhjk.net
+DOMAIN-SUFFIX,cdnhth.club
 DOMAIN-SUFFIX,cdngwc.cc
 DOMAIN-SUFFIX,cdngwc.net
 DOMAIN-SUFFIX,cdngwc.club
+# --- 站点 / CDN ---
 DOMAIN-SUFFIX,cdnaspa.club
 DOMAIN-SUFFIX,cdnaspa.vip
 DOMAIN-SUFFIX,cdnplaystation6.cc
-DOMAIN-SUFFIX,cdnplaystation6.vip
-DOMAIN-SUFFIX,jmapiproxy1.cc
-DOMAIN-SUFFIX,jmapiproxy2.cc
-DOMAIN-SUFFIX,jmapiproxy3.cc
+DOMAIN-SUFFIX,jmapidestiny.xyz
 DOMAIN-SUFFIX,bytepluses.com
+# --- 关键词兜底：官方换域名只要命名规律不变就自动命中 ---
+DOMAIN-KEYWORD,jmapiproxy
+DOMAIN-KEYWORD,jmapinode
+DOMAIN-KEYWORD,jmapp
+DOMAIN-KEYWORD,cdnxxx-proxy
+DOMAIN-KEYWORD,cdnblackmyth
