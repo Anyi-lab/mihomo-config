@@ -1,6 +1,6 @@
 # mihomo-config
 
-GitHub 托管的 mihomo 规则集（自动更新）。
+GitHub 托管的 mihomo 规则集 + 客户端配置模板（自动更新）。
 
 ## 文件说明
 
@@ -10,14 +10,17 @@ GitHub 托管的 mihomo 规则集（自动更新）。
 | `manual-list.txt` | 17 | `手动切换` | 常用站点，走手动选节点 |
 | `direct-list.txt` | 3 | `DIRECT` | 直连 |
 | `emby-list.txt` | 1 | `Emby` | 自有 Emby 服务 |
+| `mihomo/Client/config.yaml` | — | — | 完整客户端配置模板（源自 [Repcz/Tool@X](https://github.com/Repcz/Tool/blob/X/mihomo/Client/config.yaml)，已并入下面 4 个规则集） |
 
-全部为 `classical` / `format: text` 规则集：**每行只写规则本身，不带策略**，走哪个组由 config.yaml 的 `RULE-SET,<名字>,<组>` 决定。
+`*-list.txt` 全部为 `classical` / `format: text` 规则集：**每行只写规则本身，不带策略**，走哪个组由 config.yaml 的 `RULE-SET,<名字>,<组>` 决定。
 
-> ⚠️ 含机场订阅的 `config.yaml` 一律**不进本公开仓库**（已在 `.gitignore` 里）。
+> ⚠️ 含真实机场订阅的 `config.yaml` 一律**不进本公开仓库**（`.gitignore` 已忽略；仅放行 `mihomo/Client/config.yaml` 这个占位模板）。
 
 ## 使用
 
-### 1. 声明 rule-provider
+### 方式 A：只引规则集
+
+#### 1. 声明 rule-provider
 
 ```yaml
 rule-providers:
@@ -33,7 +36,7 @@ jsDelivr CDN 备用（国内可直连，缓存约 24h）：
 https://cdn.jsdelivr.net/gh/Anyi-lab/mihomo-config@main/manual-list.txt
 ```
 
-### 2. 引用规则集（rules，顺序靠前优先）
+#### 2. 引用规则集（rules，顺序靠前优先）
 
 ```yaml
 rules:
@@ -45,6 +48,18 @@ rules:
   - IP-CIDR,154.17.232.92/32,DIRECT,no-resolve
   - PROCESS-NAME,KikoFlu.exe,手动切换
 ```
+
+> 规则集要放在 `RULE-SET,Proxy,国外网站` 之类的大表**之前**，否则这些域名会先被上游大表抓走。
+
+### 方式 B：直接用完整配置模板
+
+`mihomo/Client/config.yaml` 是完整可用的 mihomo 客户端配置（含 proxy-groups / dns / tun / 规则集）：
+
+```
+https://raw.githubusercontent.com/Anyi-lab/mihomo-config/main/mihomo/Client/config.yaml
+```
+
+下载后把 `proxy-providers.Subscribe.url` 的 `http://your-service-provider` 换成自己的订阅地址即可使用（**换好之后不要再 push 回本仓库**）。
 
 > 注意：Clash Party 每次启动会重生 `work/config.yaml`，改动请落在 profile / `override/*.yaml`，别直接改 `work/config.yaml`。
 
