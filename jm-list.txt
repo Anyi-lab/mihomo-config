@@ -1,0 +1,15 @@
+# 禁漫 JM 域名规则集 (classical format, mihomo rule-provider)
+# 更新方式：编辑本文件并 push 到 GitHub，所有设备每 86400 秒自动拉取
+# 最后更新: 2026-09-12
+DOMAIN-SUFFIX,cdnhjk.net
+DOMAIN-SUFFIX,cdngwc.cc
+DOMAIN-SUFFIX,cdngwc.net
+DOMAIN-SUFFIX,cdngwc.club
+DOMAIN-SUFFIX,cdnaspa.club
+DOMAIN-SUFFIX,cdnaspa.vip
+DOMAIN-SUFFIX,cdnplaystation6.cc
+DOMAIN-SUFFIX,cdnplaystation6.vip
+DOMAIN-SUFFIX,jmapiproxy1.cc
+DOMAIN-SUFFIX,jmapiproxy2.cc
+DOMAIN-SUFFIX,jmapiproxy3.cc
+DOMAIN-SUFFIX,bytepluses.com
